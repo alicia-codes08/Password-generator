@@ -4,21 +4,38 @@ from pathlib import Path
 path = Path("password_elements.txt")
 elements_list = path.read_text().splitlines()
 
-# Generate a password
+
+def using_password_gen(password_list):
+    """Generate a password to use:"""
+    while len(password_list) < 8:
+        element = random.choice(elements_list)
+        password_list.append(element)
+
+
+# Baustelle 
+def highest_element():
+    """Get the highest element."""
+    last_element = 0
+    for element in elements_list:
+        if element in use_password:
+            if elements_list.index(element) > last_element:
+                last_element = elements_list.index(element)
+    return last_element
+
+def lowest_element():
+    """Get the lowest element."""
+    first_element = 51
+    for element in elements_list:
+        if elements_list.index(element) < last_element:
+            first_element = elements_list.index(element)
+    return first_element
+
+     
+# Generate a Password to use
 use_password = []
-while len(use_password) < 8:
-    element = random.choice(elements_list)
-    if "A" in use_password or "-" in use_password:
-        continue
-    use_password.append(element)
+using_password_gen(use_password)
+while len(use_password) < 8: 
+    using_password_gen()
 
 
-for element in use_password[5:-1]:
-    if elements_list.index(element) > 20:
-        new_element = random.choice(elements_list[43:-1])
-        if new_element in use_password:
-            continue
-        index_element = use_password.index(element)
-        use_password[index_element] = new_element
-
-print(use_password) 
+print(use_password)
