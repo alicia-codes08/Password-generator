@@ -35,7 +35,7 @@ def highest_index():
 
 def lowest_index():
     """Find out the lowest index of the using_password."""
-    lowest_index = 50
+    lowest_index = 49
     for element_up in use_password:
         index = elements_list.index(element_up)
         if index < lowest_index:
@@ -50,3 +50,20 @@ l_index = lowest_index()
 # print-test
 print(h_index)
 print(l_index)
+
+# how much you can go to the right
+h_right = 49 - h_index
+l_right = 49 - l_index
+# how much you can go to the left
+h_left = h_index
+l_left = l_index 
+# print-test
+print(h_right, h_left)
+print(l_right, l_left)
+
+
+# getting range 
+right_max = h_right
+left_max = l_left
+# print-test
+print(f"range: {right_max, left_max}")
