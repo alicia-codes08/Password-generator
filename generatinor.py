@@ -15,15 +15,11 @@ def using_password_gen(password_list):
         if element=="-" and "A" in use_password:
             continue
         password_list.append(element)
-
     
 use_password = []
 using_password_gen(use_password)
 while len(use_password) < 8: 
     using_password_gen()
-
-# print-Test
-print(use_password)
 
 
 # Generate password to keep
@@ -37,7 +33,6 @@ def highest_index():
     
     return highest_index
 
-
 def lowest_index():
     """Find out the lowest index of the using_password."""
     lowest_index = 49
@@ -48,24 +43,13 @@ def lowest_index():
     
     return lowest_index
         
-
 # get the highest and lowest index in your using-password 
 h_index = highest_index()
 l_index = lowest_index()
-# print-test
-print(h_index)
-print(l_index)
-
-# how much you can go to the right
-h_right = 49 - h_index
-l_right = 49 - l_index
-# how much you can go to the left
-h_left = h_index
-l_left = l_index 
 
 # getting range 
-right_max = h_right
-left_max = l_left*-1
+right_max = h_index
+left_max = l_index*-1
 
 # number of moved place for keeping-password 
 while True:
@@ -73,6 +57,15 @@ while True:
     if choose_num != 0:
         break
 
+# getting keeping-password
+keep_password = []
+
+
+
+
 ### print-test 
+print(h_index)
+print(l_index)
+print(use_password)
 print(f"range: right=> {right_max}, left=> {left_max}")  
-print(choose_num) 
+print(f"move: {choose_num}") 
