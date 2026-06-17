@@ -10,6 +10,10 @@ def using_password_gen(password_list):
     """Generate a password to use:"""
     while len(password_list) < 8:
         element = random.choice(elements_list)
+        if element=="A" and "-" in use_password:
+            continue
+        if element=="-" and "A" in use_password:
+            continue
         password_list.append(element)
 
     
@@ -17,6 +21,7 @@ use_password = []
 using_password_gen(use_password)
 while len(use_password) < 8: 
     using_password_gen()
+
 # print-Test
 print(use_password)
 
@@ -61,12 +66,13 @@ l_left = l_index
 # getting range 
 right_max = h_right
 left_max = l_left*-1
-# print-test
-print(f"range: right=> {right_max}, left=> {left_max}")  
-
-
 
 # number of moved place for keeping-password 
-choose_num = random.randint(left_max, right_max) 
-# print-test 
+while True:
+    choose_num = random.randint(left_max, right_max) 
+    if choose_num != 0:
+        break
+
+### print-test 
+print(f"range: right=> {right_max}, left=> {left_max}")  
 print(choose_num) 
