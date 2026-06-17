@@ -57,13 +57,16 @@ l_right = 49 - l_index
 # how much you can go to the left
 h_left = h_index
 l_left = l_index 
-# print-test
-print(h_right, h_left)
-print(l_right, l_left)
-
 
 # getting range 
 right_max = h_right
-left_max = l_left
+left_max = l_left*-1
 # print-test
-print(f"range: {right_max, left_max}")
+print(f"range: right=> {right_max}, left=> {left_max}")  
+
+
+
+# number of moved place for keeping-password 
+choose_num = random.randint(left_max, right_max) 
+# print-test 
+print(choose_num) 
