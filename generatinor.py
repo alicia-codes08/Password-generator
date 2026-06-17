@@ -58,9 +58,12 @@ while True:
         break
 
 # getting keeping-password
-keep_password = []
-
-
+keep_password = [] 
+for element in use_password:
+    index = int(elements_list.index(element))
+    new_index = index + choose_num 
+    new_element = elements_list[new_index]
+    keep_password.append(new_element)
 
 
 ### print-test 
@@ -69,3 +72,4 @@ print(l_index)
 print(use_password)
 print(f"range: right=> {right_max}, left=> {left_max}")  
 print(f"move: {choose_num}") 
+print(keep_password) 
