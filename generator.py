@@ -67,8 +67,6 @@ for element in use_password:
 
 
 ### print-test 
-print(h_index)
-print(l_index)
 print(f"using-password: {use_password}")
 print(f"range: right=> {right_max}, left=> {left_max}")  
 print(f"move: {choose_num}") 
