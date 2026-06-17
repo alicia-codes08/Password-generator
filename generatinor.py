@@ -48,7 +48,7 @@ h_index = highest_index()
 l_index = lowest_index()
 
 # getting range 
-right_max = h_index
+right_max = 49 - h_index 
 left_max = l_index*-1
 
 # number of moved place for keeping-password 
@@ -60,7 +60,7 @@ while True:
 # getting keeping-password
 keep_password = [] 
 for element in use_password:
-    index = int(elements_list.index(element))
+    index = elements_list.index(element)
     new_index = index + choose_num 
     new_element = elements_list[new_index]
     keep_password.append(new_element)
@@ -69,7 +69,7 @@ for element in use_password:
 ### print-test 
 print(h_index)
 print(l_index)
-print(use_password)
+print(f"using-password: {use_password}")
 print(f"range: right=> {right_max}, left=> {left_max}")  
 print(f"move: {choose_num}") 
-print(keep_password) 
+print(f"keeping-password: {keep_password}") 
