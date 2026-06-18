@@ -1,22 +1,6 @@
 import tkinter as tk 
 import generator as gr
 
-# important variables
-generator = gr.Generator()
-generator.using_password_gen()
-generator.highest_lowest_index()
-generator.moved_place()
-generator.getting_keeping_password()
-u_password = generator.use_password
-k_password = generator.keep_password
-k_num = generator.moved_place_num
-
-
-### print-tests
-print(f"using-password: {u_password}")
-print(f"move: {k_num}") 
-print(f"keeping-password: {k_password}") 
-
 
 # using layout 
 blue = "#1CC7D6" 
@@ -24,6 +8,7 @@ black = "#1C1C1C"
 white = "#F9F9F9" 
 red = "#F01111"
 grey = "#A7A7A7"
+
 
 # setting up the window and frames
 window = tk.Tk()
@@ -44,25 +29,39 @@ label_3 = tk.Label(window, text="", font=("Arial", 25), relief="solid")
 label_3.place(x=200, y=330, width=210, height=70)
 
 # global variables for the text in the labels
-label_1["text"] = "ass"
-label_2["text"] = "ass"
-label_3["text"] = "ass"
+label_1["text"] = "using password"
+label_2["text"] = "keeping password"
+label_3["text"] = "moved place" 
 
+# act after klicking a button 
 def clear():
     """Clear text."""
     label_1["text"] = "using password"
     label_2["text"] = "keeping password"
     label_3["text"] = "moved place"
 
-
-# act after klicking a button 
-def klicked(value):
+def klicked():
     """acting after clicking buttons"""
-    if True:
-        pass
+    generator = gr.Generator()
+    generator.using_password_gen()
+    generator.highest_lowest_index()
+    generator.moved_place()
+    generator.getting_keeping_password()
 
+    # change text on labels
+    label_1["text"] = generator.use_password
+    label_2["text"] = generator.keep_password
+    label_3["text"]= generator.moved_place_num
+
+    ### print-tests
+    print(f"using-password: {generator.use_password}")
+    print(f"move: {generator.keep_password}") 
+    print(f"keeping-password: {generator.moved_place_num}") 
+
+
+# buttons to press 
 button_press = tk.Button(window, text="PRESS", font=("Arial", 30), 
-                         command=lambda: klicked("PRESS"))
+                         command=lambda: klicked())
 button_press.config(foreground=black, background=grey, relief="groove")
 button_press.place(x=10, y=590, anchor="sw")
 
@@ -70,7 +69,6 @@ button_ac = tk.Button(window, text="AC", font=("Arial", 30),
                          command=lambda: clear())
 button_ac.config(foreground=black, background=red, relief="groove")
 button_ac.place(x=590, y=590, anchor="se")    
-
 
 
 frame.pack() 
