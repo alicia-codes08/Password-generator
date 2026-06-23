@@ -53,11 +53,12 @@ def klicked():
     label_2["text"] = generator.keep_password
     label_3["text"]= generator.moved_place_num
 
-    ### print-tests
-    print(f"using-password: {generator.use_password}")
-    print(f"move: {generator.keep_password}") 
-    print(f"keeping-password: {generator.moved_place_num}") 
 
+# Overview of all elements 
+elements_list = gr.Generator().elements_list
+password_elements = tk.Label(window, text=elements_list, font=("Arial", 10), 
+                            relief="solid")
+password_elements.place(x=10, y= 430, width=580, height=50) 
 
 # buttons to press 
 button_press = tk.Button(window, text="PRESS", font=("Arial", 30), 
@@ -69,6 +70,7 @@ button_ac = tk.Button(window, text="AC", font=("Arial", 30),
                          command=lambda: clear())
 button_ac.config(foreground=black, background=red, relief="groove")
 button_ac.place(x=590, y=590, anchor="se")    
+
 
 
 frame.pack() 
