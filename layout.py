@@ -13,32 +13,41 @@ grey = "#A7A7A7"
 # setting up the window and frames
 window = tk.Tk()
 window.title("Using/keeping-password generator")
-window.geometry("600x600")
+window.geometry("650x650")
 window.resizable(False, False) 
 window.config(background=blue)
 frame = tk.Frame(window) 
 
 # showing passwords and moved number 
+label_title_1 = tk.Label(window, text="using password:", font=("Arial", 25), 
+                         bg=blue)
+label_title_1.place(x=200, y=5, width=290, height=60)
 label_1 = tk.Label(window, text="", font=("Arial", 25), relief="solid")
-label_1.place(x=170, y=50, width=290, height=70)
+label_1.place(x=200, y=60, width=290, height=60)
 
+label_title_2 = tk.Label(window, text="keeping password:", font=("Arial", 25), 
+                        bg=blue)
+label_title_2.place(x=200, y=140, width=290, height=60)
 label_2 = tk.Label(window, text="", font=("Arial", 25), relief="solid")
-label_2.place(x=170, y=165, width=290, height=70)
+label_2.place(x=200, y=200, width=290, height=60)
 
+label_title_3 = tk.Label(window, text="moved place:", font=("Arial", 25), 
+                         bg=blue)
+label_title_3.place(x=240, y=300, width=190, height=60)
 label_3 = tk.Label(window, text="", font=("Arial", 25), relief="solid")
-label_3.place(x=200, y=330, width=210, height=70)
+label_3.place(x=270, y=355, width=100, height=60)
 
 # global variables for the text in the labels
-label_1["text"] = "using password"
-label_2["text"] = "keeping password"
-label_3["text"] = "moved place" 
+label_1["text"] = ""
+label_2["text"] = ""
+label_3["text"] = "" 
 
 # act after klicking a button 
 def clear():
     """Clear text."""
-    label_1["text"] = "using password"
-    label_2["text"] = "keeping password"
-    label_3["text"] = "moved place"
+    label_1["text"] = ""
+    label_2["text"] = ""
+    label_3["text"] = ""
 
 def klicked():
     """acting after clicking buttons"""
@@ -51,25 +60,30 @@ def klicked():
     # change text on labels
     label_1["text"] = generator.use_password
     label_2["text"] = generator.keep_password
-    label_3["text"]= generator.moved_place_num
+    label_3["text"] = generator.moved_place_num * -1
 
 
 # Overview of all elements 
+text = "If you got a negative number, your real password ist moved to the left."\
+"\nOtherwise it's moved to the right."
+message = tk.Label(window, text=text, font=("Arial", 12), background=blue)
+message.place(x=5, y= 445, width=635, height=50) 
+
 elements_list = gr.Generator().elements_list
-password_elements = tk.Label(window, text=elements_list, font=("Arial", 10), 
+password_elements = tk.Label(window, text=elements_list, font=("Arial", 12), 
                             relief="solid")
-password_elements.place(x=10, y= 430, width=580, height=50) 
+password_elements.place(x=10, y= 490, width=635, height=50) 
 
 # buttons to press 
 button_press = tk.Button(window, text="PRESS", font=("Arial", 30), 
                          command=lambda: klicked())
 button_press.config(foreground=black, background=grey, relief="groove")
-button_press.place(x=10, y=590, anchor="sw")
+button_press.place(x=10, y=640, anchor="sw")
 
 button_ac = tk.Button(window, text="AC", font=("Arial", 30), 
                          command=lambda: clear())
 button_ac.config(foreground=black, background=red, relief="groove")
-button_ac.place(x=590, y=590, anchor="se")    
+button_ac.place(x=640, y=640, anchor="se")    
 
 
 
