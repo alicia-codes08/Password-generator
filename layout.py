@@ -3,14 +3,35 @@ import generator as gr
 
 
 # colors 
-blue = "#1CC7D6" 
+blue = "#1CADE6" 
 black = "#1C1C1C"
 white = "#F9F9F9" 
 red = "#F01111"
-grey = "#A7A7A7"
+grey = "#999999"
+
+# action after klicking a button 
+def clear():
+    """Clear text in the white fields"""
+    label_1["text"] = ""
+    label_2["text"] = ""
+    label_3["text"] = ""
+
+def klicked():
+    """change text in the white fields after klicking 'press'."""
+    # getting passwords and moved number
+    generator = gr.Generator()
+    generator.using_password_gen()
+    generator.highest_lowest_index()
+    generator.moved_place()
+    generator.getting_keeping_password()
+
+    # change text in the white fields
+    label_1["text"] = generator.use_password
+    label_2["text"] = generator.keep_password
+    label_3["text"] = generator.moved_place_num * -1
 
 
-# setting up the window and frames
+# setting up windows and frames 
 window = tk.Tk()
 window.title("Using/keeping-password generator")
 window.geometry("650x650")
@@ -18,10 +39,10 @@ window.resizable(False, False)
 window.config(background=blue)
 frame = tk.Frame(window) 
 
-# showing passwords and moved number 
+# showing passwords and number of moved place
 label_title_1 = tk.Label(window, text="using password:", font=("Arial", 25), 
                          bg=blue)
-label_title_1.place(x=200, y=5, width=290, height=60)
+label_title_1.place(x=190, y=5, width=290, height=60)
 label_1 = tk.Label(window, text="", font=("Arial", 25), relief="solid")
 label_1.place(x=200, y=60, width=290, height=60)
 
@@ -35,33 +56,7 @@ label_title_3 = tk.Label(window, text="moved place:", font=("Arial", 25),
                          bg=blue)
 label_title_3.place(x=240, y=300, width=190, height=60)
 label_3 = tk.Label(window, text="", font=("Arial", 25), relief="solid")
-label_3.place(x=270, y=355, width=100, height=60)
-
-# global variables for the text in the labels
-label_1["text"] = ""
-label_2["text"] = ""
-label_3["text"] = "" 
-
-# act after klicking a button 
-def clear():
-    """Clear text."""
-    label_1["text"] = ""
-    label_2["text"] = ""
-    label_3["text"] = ""
-
-def klicked():
-    """acting after clicking buttons"""
-    generator = gr.Generator()
-    generator.using_password_gen()
-    generator.highest_lowest_index()
-    generator.moved_place()
-    generator.getting_keeping_password()
-
-    # change text on labels
-    label_1["text"] = generator.use_password
-    label_2["text"] = generator.keep_password
-    label_3["text"] = generator.moved_place_num * -1
-
+label_3.place(x=280, y=355, width=85, height=60)
 
 # Overview of all elements 
 text = "If you got a negative number, your real password ist moved to the left."\
@@ -84,7 +79,6 @@ button_ac = tk.Button(window, text="AC", font=("Arial", 30),
                          command=lambda: clear())
 button_ac.config(foreground=black, background=red, relief="groove")
 button_ac.place(x=640, y=640, anchor="se")    
-
 
 
 frame.pack() 
