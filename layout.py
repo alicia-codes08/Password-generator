@@ -2,7 +2,7 @@ import tkinter as tk
 import generator as gr
 
 
-# using layout 
+# colors 
 blue = "#1CC7D6" 
 black = "#1C1C1C"
 white = "#F9F9F9" 
