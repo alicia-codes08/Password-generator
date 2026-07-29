@@ -20,3 +20,20 @@ def test_checking_lenght(generator):
 
     assert len(lenght_use) == 8
     assert len(lenght_keep) == 8 
+
+def test_moved_place(generator):
+    """Checking if moved place is accurate to the moved index."""
+    elements = generator.elements_list
+    using = generator.use_password
+    keeping = generator.keep_password
+    moved_place = generator.moved_place_num 
+
+    # testing each element of the keeping password
+    using_new = []
+    for element in keeping:
+        index = elements.index(element)
+        moved_index = index - moved_place
+        using_element = elements[moved_index] 
+        using_new.append(using_element)
+
+    assert using_new == using 
