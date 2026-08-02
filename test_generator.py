@@ -14,7 +14,7 @@ def generator():
 
 
 def test_checking_lenght(generator):
-    """Checking lenghts of the both password."""
+    """Checking lenghts of the both passwords."""
     lenght_use = generator.use_password
     lenght_keep = generator.keep_password
 
@@ -22,7 +22,7 @@ def test_checking_lenght(generator):
     assert len(lenght_keep) == 8 
 
 def test_moved_place(generator):
-    """Checking if moved place is accurate to the moved index."""
+    """Checking keeping password is moved place away from the using one."""
     elements = generator.elements_list
     using = generator.use_password
     keeping = generator.keep_password
