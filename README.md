@@ -1,6 +1,7 @@
 This generator was written in python and used tkinter for the layout.
 
-This generator works based on my own mechanism. When you run the file layout.py, a window pops up. 
+This generator works quite similar to the caesar principle. First and a long time after finishing this project I thought that I
+created a new mechanism, but yesterday I learned it wasn't new at all. When you run the file layout.py, a window pops up. 
 There you can klick "PRESS" to generate a password. It chooses random elements from the file password_elements.txt. 
 Wich is a list, where i definied the possible elements for a password. After generating a password in "using password", 
 you get another password called "keeping password". The first password is the one, that you use e.g. for your 
