@@ -1,4 +1,4 @@
-I wrote the code for this generator in python and userd tkinter for the layout.
+I wrote the code for this generator in python and used tkinter for the layout.
 
 This generator works quite similar to the caesar principle. First and a long time after finishing this project I thought that I
 created a new mechanism, but yesterday I learned it wasn't new at all. When you run the file layout.py, a window pops up. 
